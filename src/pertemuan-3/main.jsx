@@ -1,0 +1,13 @@
+import { createRoot} from "react-dom/client";
+import TailwindCSS from "./tailwindCSS";
+import './tailwind.css';
+import UserForm from "./UserForm";
+import HitungGajiForm from "./HitungGajiForm";
+
+createRoot(document.getElementById("root"))
+.render(
+    <div>
+        {/* <UserForm/> */}
+        <HitungGajiForm />
+    </div>
+)
