@@ -1,55 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./assets/tailwind.css";
+import Sidebar from "./layouts/Sidebar";
+import Header from "./layouts/Header";
+import Dashboard from "./pages/Dashboard";
+// Tambahkan import di bawah ini:
+import Orders from "./pages/Orders";
+import Customers from "./pages/Customers";
+import NotFound from "./pages/NotFound.jsx";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    // Kita gunakan container utama agar styling #root bekerja maksimal
-    <main className="main-container">
-      
-      {/* Bagian Hero / Logo */}
-      <div className="logo-wrapper">
-        <a href="https://vite.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+    <div id="app-container" className="bg-gray-100 min-h-screen flex">
+      <div id="layout-wrapper" className="flex flex-row flex-1">
+        {/* Sidebar */}
+        <Sidebar />
 
-      {/* Judul dengan gradasi */}
-      <h1 className="title">HAIII</h1>
-      
-      <p className="subtitle">
-        Selamat datang di proyek React modern Anda. 
-        Mari mulai membangun sesuatu yang luar biasa.
-      </p>
-
-      {/* Card dengan efek Glassmorphism */}
-      <div className="card">
-        <div className="counter-section">
-          <button className="btn-count" onClick={() => setCount((count) => count + 1)}>
-            count is <span>{count}</span>
-          </button>
+        {/* Main Content */}
+        <div id="main-content" className="flex-1 p-4">
+          {/* <Header /> */}
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
-        
-        <p className="edit-info">
-          Edit <code>src/App.jsx</code> dan simpan untuk melihat perubahan (HMR).
-        </p>
       </div>
-
-      {/* Footer / Info tambahan */}
-      <footer className="footer">
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </footer>
-
-    </main>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
