@@ -1,4 +1,4 @@
-import Header from "../layouts/Header";
+import Header from "../components/Header";
 import { FiFileText, FiTruck, FiXCircle, FiShoppingBag, FiCalendar } from "react-icons/fi";
 import { 
     AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
