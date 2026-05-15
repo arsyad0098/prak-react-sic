@@ -1,10 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { MdSpaceDashboard } from "react-icons/md";
-import { FiShoppingCart, FiUsers, FiPieChart, FiFileText, FiCalendar } from "react-icons/fi";
+// Tambahkan FiBox di sini untuk icon Product
+import { FiShoppingCart, FiUsers, FiPieChart, FiFileText, FiCalendar, FiBox } from "react-icons/fi";
 
 export default function Sidebar() {
     const menuItems = [
         { id: "menu-1", name: "Dashboard", path: "/", icon: <MdSpaceDashboard /> },
+        // INI MENU BARU UNTUK TUGAS PERTEMUAN 9
+        { id: "menu-product", name: "Product", path: "/products", icon: <FiBox /> },
         { id: "menu-2", name: "Order List", path: "/orders", icon: <FiShoppingCart /> },
         { id: "menu-3", name: "Order Detail", path: "/order-detail", icon: <FiFileText /> },
         { id: "menu-4", name: "Customer", path: "/customers", icon: <FiUsers /> },
@@ -12,7 +15,7 @@ export default function Sidebar() {
         { id: "menu-6", name: "Calendar", path: "/calendar", icon: <FiCalendar /> },
     ];
 
-    // 🔥 class dipisah biar reusable & rapi
+    // 🔥 class tetap sama, biar konsisten
     const menuClass = ({ isActive }) =>
         `flex items-center gap-4 px-4 py-3 rounded-xl transition-all cursor-pointer group
         ${
@@ -39,6 +42,7 @@ export default function Sidebar() {
                         <li key={item.id}>
                             <NavLink
                                 to={item.path}
+                                // Gunakan end={true} jika path nya cuma "/" agar tidak selalu aktif
                                 end={item.path === "/"}
                                 className={menuClass}
                             >
