@@ -13,6 +13,7 @@ const Customers = React.lazy(() => import("./pages/Customers"));
 // --- TAMBAHAN UNTUK TUGAS PERTEMUAN 9 ---
 const Products      = React.lazy(() => import("./pages/Products"));
 const ProductDetail = React.lazy(() => import("./pages/ProductDetail"));
+const Components    = React.lazy(() => import("./pages/Components")); 
 // ----------------------------------------
 const Login     = React.lazy(() => import("./pages/Login"));
 const Register  = React.lazy(() => import("./pages/Register"));
@@ -35,6 +36,7 @@ export default function App() {
           {/* --- ROUTE BARU DISINI --- */}
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/components" element={<Components />} />
           {/* ------------------------- */}
         </Route>
 

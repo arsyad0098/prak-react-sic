@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom";
 import { MdSpaceDashboard } from "react-icons/md";
-// Tambahkan FiBox di sini untuk icon Product
-import { FiShoppingCart, FiUsers, FiPieChart, FiFileText, FiCalendar, FiBox } from "react-icons/fi";
+// Tambahkan FiLayers di sini untuk icon Components
+import { FiShoppingCart, FiUsers, FiPieChart, FiFileText, FiCalendar, FiBox, FiLayers } from "react-icons/fi";
 
 export default function Sidebar() {
     const menuItems = [
         { id: "menu-1", name: "Dashboard", path: "/", icon: <MdSpaceDashboard /> },
-        // INI MENU BARU UNTUK TUGAS PERTEMUAN 9
         { id: "menu-product", name: "Product", path: "/products", icon: <FiBox /> },
+        // --- MENU BARU DISINI ---
+        { id: "menu-components", name: "Components", path: "/components", icon: <FiLayers /> },
+        // -------------------------
         { id: "menu-2", name: "Order List", path: "/orders", icon: <FiShoppingCart /> },
         { id: "menu-3", name: "Order Detail", path: "/order-detail", icon: <FiFileText /> },
         { id: "menu-4", name: "Customer", path: "/customers", icon: <FiUsers /> },
@@ -15,7 +17,6 @@ export default function Sidebar() {
         { id: "menu-6", name: "Calendar", path: "/calendar", icon: <FiCalendar /> },
     ];
 
-    // 🔥 class tetap sama, biar konsisten
     const menuClass = ({ isActive }) =>
         `flex items-center gap-4 px-4 py-3 rounded-xl transition-all cursor-pointer group
         ${
@@ -36,13 +37,12 @@ export default function Sidebar() {
             </div>
 
             {/* Menus */}
-            <nav className="flex-1 px-4 space-y-2 mt-4 overflow-y-auto">
-                <ul className="list-none p-0 m-0">
+            <nav className="flex-1 px-4 mt-4 overflow-y-auto">
+                <ul className="list-none p-0 m-0 space-y-2">
                     {menuItems.map((item) => (
                         <li key={item.id}>
                             <NavLink
                                 to={item.path}
-                                // Gunakan end={true} jika path nya cuma "/" agar tidak selalu aktif
                                 end={item.path === "/"}
                                 className={menuClass}
                             >
