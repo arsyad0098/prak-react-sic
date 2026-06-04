@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { MdSpaceDashboard } from "react-icons/md";
 // Tambahkan FiLayers di sini untuk icon Components
-import { FiShoppingCart, FiUsers, FiPieChart, FiFileText, FiCalendar, FiBox, FiLayers } from "react-icons/fi";
+import { FiShoppingCart, FiUsers, FiPieChart, FiFileText, FiCalendar, FiBox, FiLayers, FiStar } from "react-icons/fi";
 
 export default function Sidebar() {
     const menuItems = [
@@ -9,6 +9,7 @@ export default function Sidebar() {
         { id: "menu-product", name: "Product", path: "/products", icon: <FiBox /> },
         // --- MENU BARU DISINI ---
         { id: "menu-components", name: "Components", path: "/components", icon: <FiLayers /> },
+        { id: "menu-fitur-xyz", name: "Fitur Xyz", path: "/fitur-xyz", icon: <FiStar /> },
         // -------------------------
         { id: "menu-2", name: "Order List", path: "/orders", icon: <FiShoppingCart /> },
         { id: "menu-3", name: "Order Detail", path: "/order-detail", icon: <FiFileText /> },
